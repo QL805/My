@@ -1,13 +1,16 @@
 package cn.edu.sdwu.android.classroom.sn170507180212;
 
 import android.app.WallpaperManager;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.regex.Matcher;
@@ -42,7 +45,19 @@ public class Ch4Activity1 extends AppCompatActivity implements View.OnFocusChang
             }
         });
         EditText email=(EditText) findViewById(R.id.ch4_1_email);
+        email.setOnFocusChangeListener(this);
 
+        LinearLayout linearLayout=(LinearLayout)findViewById(R.id.ch4_1_1);
+        linearLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                float x=motionEvent.getX();
+                float y=motionEvent.getY();
+                TextView textView=(TextView) findViewById(R.id.ch4_1_tv);
+                textView.setText("x:"+x+",y"+y);
+                return true;
+            }
+        });
 
     }
 
@@ -73,4 +88,10 @@ public class Ch4Activity1 extends AppCompatActivity implements View.OnFocusChang
         }
     }
 
+
+    public void startMain(View view){
+        //界面跳转
+        Intent intent=new Intent(this,MainActivity.class);
+        startActivity(intent);
+    }
 }
