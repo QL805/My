@@ -16,8 +16,8 @@ public class Ch6Activity1 extends AppCompatActivity {
         Log.i(Ch6Activity1.this.toString(),content);
 
         String sms=getString(R.string.sms);
-        String.format(sms,100,"张三");
-        Log.i(Ch6Activity1.this.toString(),sms);
+        String s=String.format(sms,100,"张三");
+        Log.i(Ch6Activity1.this.toString(),s);
 
     }
 }
