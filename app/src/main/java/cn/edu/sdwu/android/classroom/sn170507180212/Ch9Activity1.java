@@ -17,7 +17,9 @@ public class Ch9Activity1 extends AppCompatActivity {
 
         Resources resources=getResources();
         String[] countries = resources.getStringArray(R.array.countries);
+        //适配器
         ArrayAdapter arrayAdapter=new ArrayAdapter(this,android.R.layout.simple_dropdown_item_1line,countries);
+        //提示框
         AutoCompleteTextView autoCompleteTextView=(AutoCompleteTextView)findViewById(R.id.ch9_1_act);
         autoCompleteTextView.setAdapter(arrayAdapter);
 
